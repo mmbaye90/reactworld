@@ -1,0 +1,13 @@
+.navigation {
+    margin: 0.5rem;
+}
+
+.navigation .lien {
+    text-decoration: none;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.navigation .lien-active {
+    border: 2px aqua solid;
+}
