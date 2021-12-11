@@ -6,8 +6,10 @@ const Countries = () => {
     const[data,setData] = useState([]);
     const url = "https://restcountries.com/v3.1/all?fields=flags,name,population,capital,region";
     const [getApi,setGetApi] = useState(true);
-    const[rangeValue,setRangeValue] = useState(3);
+    const[rangeValue,setRangeValue] = useState(1);
     const[dataTransformed,setDataTransformed] = useState([])
+    const continents = ["Africa","America","Asia","Europe","Oceania"]
+    const [radioChecked,setRadioChecked] = useState(" ");
 
     useEffect(() => {
         if(getApi){
@@ -36,9 +38,28 @@ const Countries = () => {
         <div>
             <div className="sorcontener">
                 <input type="range" min="1" max="250" onChange={(e)=>setRangeValue(e.target.value)} />
+                <ul className="continent">
+                   {continents.map((continent)=>(
+                       
+                           <li key={continent}>
+                               <input 
+                               type="radio"
+                               name={continent} 
+                               id={continent} 
+                               value={continent}
+                               checked={continent === radioChecked}
+                               onChange={(e)=>setRadioChecked(e.target.value)}/>
+                               <label htmlFor={continent}>{continent}</label>
+                           </li>
+                       
+                    ))}
+                </ul>
+                
             </div>
             <ul>
-                {dataTransformed.map((country)=>(
+                {dataTransformed
+                .filter(country=>country.region.includes(radioChecked))
+                .map((country)=>(
                     <li key={country.name.common}>{country.name.common}</li>
                 ))}
             </ul>
