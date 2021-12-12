@@ -8,3 +8,42 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.countries .sorcontener {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 8px;
+    border-radius: 15px;
+    background: #282c34;
+    color: #61dafb;
+    box-shadow: 0 2px 2px rgba(51, 51, 51, 0.3);
+}
+
+.countries .sorcontener ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.countries .sorcontener ul input[type="radio"] {
+    transform: translate(-5px, 1px);
+}
+
+.countries .annuler {
+    max-width: 200px;
+    margin: auto;
+}
+
+.countries .annuler h5 {
+    border: 1px #282c34 solid;
+    text-align: center;
+    width: 180px;
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.countries .annuler h5:hover {
+    background: #61dafb;
+    border-color: #61dafb;
+}
