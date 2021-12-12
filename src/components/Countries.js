@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState,useEffect } from 'react/cjs/react.development';
+import Card from './Card';
 
 const Countries = () => {
     const[data,setData] = useState([]);
@@ -58,7 +59,7 @@ const Countries = () => {
                
             </div>
              <div className="annuler">
-             {radioChecked && (
+             {radioChecked &&(
               <h5 onClick={() => setRadioChecked("")}>Annuler recherche</h5>
             )}
                 </div>
@@ -66,7 +67,7 @@ const Countries = () => {
                 {dataTransformed
                 .filter(country=>country.region.includes(radioChecked))
                 .map((country)=>(
-                    <li key={country.name.common}>{country.name.common}</li>
+                    <Card key={country.name.official} country={country}/>
                 ))}
                 
             </ul>
