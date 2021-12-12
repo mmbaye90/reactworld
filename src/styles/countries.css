@@ -1,0 +1,10 @@
+.countries ul {
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.countries .listcountries {
+    display: flex;
+    flex-wrap: wrap;
+}
