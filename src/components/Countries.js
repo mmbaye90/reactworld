@@ -8,10 +8,10 @@ const Countries = () => {
     const[data,setData] = useState([]);
     const url = "https://restcountries.com/v3.1/all?fields=flags,name,population,capital,region";
     const [getApi,setGetApi] = useState(true);
-    const[rangeValue,setRangeValue] = useState(10);
+    const[rangeValue,setRangeValue] = useState(30);
     const[dataTransformed,setDataTransformed] = useState([])
     const continents = ["Africa","America","Asia","Europe","Oceania"]
-    const [radioChecked,setRadioChecked] = useState(" ");
+    const [radioChecked,setRadioChecked] = useState("");
 
     useEffect(() => {
         if(getApi){
@@ -41,27 +41,26 @@ const Countries = () => {
             <div className="sorcontener">
                 <input type="range" value={rangeValue} min="1" max="250" onChange={(e)=>setRangeValue(e.target.value)} />
                 <ul>
-                   {
-                    continents.map((continent)=>(
-                       
-                           <li key={continent}>
-                               <input 
-                               type="radio"
-                               name={continent} 
-                               id={continent} 
-                               value={continent}
-                               checked={continent === radioChecked}
-                               onChange={(e)=>setRadioChecked(e.target.value)}/>
-                               <label htmlFor={continent}>{continent}</label>
-                           </li>
-                       
-                    ))}
+                   {continents.map(continent=>{
+                       return(
+                        <li key={continent}>
+                        <input 
+                        type="radio"
+                         
+                        id={continent} 
+                        value={continent}
+                        checked={continent === radioChecked}
+                        onChange={(e)=>setRadioChecked(e.target.value)}/>
+                        <label htmlFor={continent}>{continent}</label>
+                        </li>
+                       )
+                        })}
                 </ul>
                
             </div>
              <div className="annuler">
              {radioChecked &&(
-              <h5 onClick={() => setRadioChecked("")}>Annuler recherche</h5>
+              <h5 onClick={() => setRadioChecked("")}>Retour à l'Accueil</h5>
             )}
                 </div>
             <ul className="listcountries">
