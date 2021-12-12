@@ -41,9 +41,30 @@
     border-radius: 10px;
     transition: 0.3s;
     cursor: pointer;
+    color: #ffff;
+    background: rgba(0, 0, 0, 0.616);
 }
 
 .countries .annuler h5:hover {
     background: #61dafb;
     border-color: #61dafb;
+    color: black;
+}
+
+@media all and (max-width:640px) {
+    .countries .sorcontener {
+        max-width: 450px;
+        margin: auto;
+    }
+    .countries .sorcontener ul {
+        justify-content: inherit;
+    }
+    .countries .sorcontener ul {
+        list-style-type: none;
+        display: block;
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content: start;
+    }
 }
